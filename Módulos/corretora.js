@@ -13,7 +13,7 @@ const model = (id = proxID++) => {
             nome
         }
     }
-
+    
     console.log("Dados inválidos.");
 }
 
