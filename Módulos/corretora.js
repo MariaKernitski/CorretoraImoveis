@@ -13,7 +13,7 @@ const model = (id = proxID++) => {
             nome
         }
     }
-
+    
     console.log("Dados inválidos.");
 }
 
@@ -46,7 +46,7 @@ const update = () => {
         const indice = db.findIndex(el => el.id == id);
 
         if(indice != -1) {
-            const novo = model();
+            const novo = model(id);
 
             if(novo) {
                 db[indice] = novo;

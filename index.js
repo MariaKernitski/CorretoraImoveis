@@ -2,7 +2,9 @@ const prompt = require("prompt-sync")();
 
 const corretora = require("./Módulos/corretora.js");
 const cliente = require("./Módulos/cliente.js");
-const corretor = require("./Módulos/corretor.js")
+const corretor = require("./Módulos/corretor.js");
+const imovel = require("./Módulos/imovel.js");
+const venda = require("./Módulos/venda.js");
 
 const menuPrincipal = () => {
     console.log(`
@@ -16,6 +18,8 @@ while(true) {
     1 - CORRETORA;
     2 - CLIENTE;
     3 - CORRETOR(A);
+    4 - IMÓVEL;
+    5 - VENDAS;
     0 - SAIR.
     `)
 
@@ -28,8 +32,14 @@ while(true) {
         break;
         case 3: menuCorretor();
         break;
-        case 0: process.exit();
+        case 4: menuImovel();
         break;
+        case 5: menuVendas();
+        break;
+        case 0: console.log("Até logo!");
+                process.exit();
+        break;
+                
         default: console.log("Opção inválida.")
     }
 }
@@ -124,5 +134,66 @@ const menuCorretor = () => {
             }
 }
 }
+
+const menuImovel = () => {
+    console.log("GERENCIAMENTO DE IMÓVEL.");
+        while(true) {
+            console.log(`
+            1 - CADASTRAR;
+            2 - LISTAR;
+            3 - ATUALIZAR;
+            4 - REMOVER;
+            0 - SAIR.
+            `)
+
+            const serviço = parseInt(prompt(": "));
+
+            switch(serviço) {
+                case 1: imovel.store();
+                break;
+                case 2: imovel.index();
+                break;
+                case 3: imovel.update();
+                break;
+                case 4: imovel.destroy();
+                break;
+                case 0: return
+                break;
+                default: console.log("Opção inválida.");
+                break;
+            }
+}
+}
+
+const menuVendas = () => {
+    console.log("GERENCIAMENTO DE VENDAS.");
+        while(true) {
+            console.log(`
+            1 - CADASTRAR;
+            2 - LISTAR;
+            3 - ATUALIZAR;
+            4 - REMOVER;
+            0 - SAIR.
+            `)
+
+            const serviço = parseInt(prompt(": "));
+
+            switch(serviço) {
+                case 1: venda.store();
+                break;
+                case 2: venda.index();
+                break;
+                case 3: venda.update();
+                break;
+                case 4: venda.destroy();
+                break;
+                case 0: return
+                break;
+                default: console.log("Opção inválida.");
+                break;
+            }
+}
+}
+
 
 menuPrincipal();
