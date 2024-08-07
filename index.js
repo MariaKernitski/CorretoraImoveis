@@ -36,8 +36,10 @@ while(true) {
         break;
         case 5: menuVendas();
         break;
-        case 0: process.exit();
+        case 0: console.log("Até logo!");
+                process.exit();
         break;
+                
         default: console.log("Opção inválida.")
     }
 }
